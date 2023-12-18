@@ -163,7 +163,8 @@ class NimAI():
         available_actions = Nim.available_actions(state)
 
         if epsilon and random.random() <= self.epsilon:
-            return random.sample(available_actions, 1)[0]
+            first =  random.sample(list(available_actions), 1)[0]
+            return first
 
         best_reward = -math.inf
 
@@ -288,5 +289,3 @@ def play(ai, human_player=None):
             winner = "Human" if game.winner == human_player else "AI"
             print(f"Winner is {winner}")
             return
-        
-        
